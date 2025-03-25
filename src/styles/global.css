@@ -1,0 +1,18 @@
+@import "tailwindcss";
+
+/* .toggle-btn {
+
+    &>div::before {
+        transform: translateY(0) rotate(45deg);
+    }
+
+    &>div::after {
+        transform: translateY(0) rotate(-45deg);
+    }
+
+    &>div {
+        background: transparent;
+        transform: rotate(720deg);
+        transition-duration: 500ms;
+    }
+} */

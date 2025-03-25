@@ -1,0 +1,155 @@
+---
+import Logo from "../components/Logo.astro";
+---
+
+<header class="sticky top-0 z-10 bg-gray-900 text-white">
+  <section
+    class="mx-auto flex max-w-full items-center justify-between py-2 px-6 close-nav"
+  >
+    <h1 class="text-3xl font-medium">
+      <Logo />
+    </h1>
+    <div>
+      <button
+        id="hamburger-button"
+        class="relative h-8 w-8 cursor-pointer text-3xl md:hidden"
+      >
+        <div
+          class="absolute top-4 -mt-0.5 h-1 w-8 rounded bg-white transition-all duration-500 before:absolute before:h-1 before:w-8 before:-translate-x-4 before:-translate-y-3 before:rounded before:bg-white before:transition-all before:duration-500 before:content-[''] after:absolute after:h-1 after:w-4 after:-translate-x-4 after:translate-y-3 after:rounded after:bg-white after:transition-all after:duration-500 after:content-['']"
+        >
+        </div>
+      </button>
+      <nav class="hidden space-x-8 text-xl md:block" aria-label="main">
+        <ul
+          class="flex flex-col items-center w-full relative top-0 md:top-0 z-30 md:bg-transparent md:flex-row gap-2 px-8"
+        >
+          <a
+            class="w-full flex items-center justify-center py-6 md:p-3 hover:bg-blue-400 hover:text-slate-900 transform transition duration-300 rounded-md"
+            href="/"
+          >
+            <li class="cursor-pointer md:p-3 flex items-center">Home</li>
+          </a>
+          <a
+            class="w-full flex items-center justify-center py-6 md:p-3 hover:bg-blue-400 hover:text-slate-900 transform transition duration-300 rounded-md"
+            href="/about"
+          >
+            <li class="cursor-pointer md:p-3 flex items-center">About</li>
+          </a>
+          <a
+            class="w-full flex items-center justify-center py-6 md:p-3 hover:bg-blue-400 hover:text-slate-900 transform transition duration-300 rounded-md"
+            href="/contact"
+          >
+            <li class="cursor-pointer md:p-3 flex items-center">Contact</li>
+          </a>
+
+          <a
+            class="w-full flex items-center justify-center py-6 md:p-3 hover:bg-blue-400 hover:text-slate-900 transform transition duration-300 rounded-md"
+            href="/gallery"
+          >
+            <li class="cursor-pointer md:p-3 flex items-center">Gallery</li>
+          </a>
+        </ul>
+      </nav>
+    </div>
+  </section>
+  <section
+    id="mobile-menu"
+    class="top-20 justify-center absolute hidden w-full origin-top animate-open-menu flex-col bg-black text-5xl"
+  >
+    <nav
+      class="flex min-h-screen flex-col items-center py-8 navbar"
+      aria-label="mobile"
+    >
+      <a
+        href="/"
+        class="w-3/4 flex items-center justify-center py-6 md:p-3 hover:bg-blue-400 hover:text-slate-900 transform transition duration-300 rounded-md"
+        >Home</a
+      >
+      <a
+        href="/about"
+        class="w-3/4 flex items-center justify-center py-6 md:p-3 hover:bg-blue-400 hover:text-slate-900 transform transition duration-300 rounded-md"
+        >About</a
+      >
+      <a
+        href="/contact"
+        class="w-3/4 flex items-center justify-center py-6 md:p-3 hover:bg-blue-400 hover:text-slate-900 transform transition duration-300 rounded-md"
+        >Contact</a
+      >
+      <a
+        href="/gallery"
+        class="w-3/4 flex items-center justify-center py-6 md:p-3 hover:bg-blue-400 hover:text-slate-900 transform transition duration-300 rounded-md"
+        >Gallery</a
+      >
+    </nav>
+  </section>
+
+  <style>
+    .active {
+      border-bottom: rgb(96 165 250) 3px solid;
+    }
+
+    @keyframes openMenu {
+      0% {
+        transform: scaleY(0);
+      }
+      80% {
+        transform: scaleY(1.2);
+      }
+      100% {
+        transform: scaleY(1);
+      }
+    }
+
+    .animate-open-menu {
+      animation: openMenu 1s ease-in-out forwards;
+    }
+
+    .toggle-btn {
+      & > div::before {
+        transform: translateY(12px) rotate(-45deg);
+      }
+      & > div::after {
+        transform: translateY(-12px) rotate(45deg);
+        width: 2rem;
+      }
+      & > div {
+        background: transparent;
+        transform: rotate(720deg);
+        transition-duration: 800ms;
+      }
+    }
+  </style>
+
+  <script>
+    document.addEventListener("astro:page-load", () => {
+      const nav = document.querySelector(".navbar");
+      const closeNav = document.querySelector(".close-nav");
+      const navLinks = nav.querySelectorAll("a");
+      const hamburgerBtn = document.querySelector("#hamburger-button");
+      const mobileMenu = document.querySelector("#mobile-menu");
+      const currentURL = window.location.pathname;
+
+      const toggleMenu = () => {
+        mobileMenu.classList.toggle("hidden");
+        mobileMenu.classList.toggle("flex");
+        hamburgerBtn.classList.toggle("toggle-btn");
+      };
+
+      closeNav.addEventListener("click", (e) => {
+        if (e.target === closeNav) {
+          toggleMenu();
+        }
+      });
+
+      hamburgerBtn.addEventListener("click", toggleMenu);
+      mobileMenu.addEventListener("click", toggleMenu);
+
+      navLinks.forEach((link) => {
+        const navLinkPathname = new URL(link.href).pathname;
+        if (currentURL === navLinkPathname) {
+          link.classList.add("active");
+        }
+      });
+    });
+  </script>
+</header>

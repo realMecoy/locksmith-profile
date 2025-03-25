@@ -1,0 +1,39 @@
+---
+const year = new Date().getFullYear();
+import { Icon } from "astro-icon/components";
+---
+
+<footer
+  class="flex flex-col justify-evenly items-center py-4 bg-black text-lg mt-auto text-white"
+>
+  <div
+    class="flex flex-col justify-center items-center md:flex-row w-full gap-4"
+  >
+    <div class="w-full text-center">
+      <p class="text-xl text-blue-400">Email Adress</p>
+      <p class="text-md text-yellow-400">
+        <Icon name="mdi:gmail" class="w-5 h-5 text-red-600 inline" />
+
+        realmecoy@gmail.com
+      </p>
+    </div>
+    <div class="w-full text-center">
+      <p class="text-xl text-blue-400">Telegram</p>
+      <p class="text-md text-yellow-400">
+        <Icon name="mdi:telegram" class="w-5 h-5 text-blue-400 inline" />
+        073 918 3155
+      </p>
+    </div>
+    <div class="w-full text-center">
+      <p class="text-xl text-blue-400">Work/Whatsapp</p>
+      <p class="text-md text-yellow-400">
+        <Icon name="mdi:whatsapp" class="w-5 h-5 text-green-600 inline" />
+        083 503 6603
+      </p>
+    </div>
+  </div>
+  <hr class="h-px my-1 w-3/4 text-white border-2 md:hidden" />
+  <small class="py-4"
+    >Copyright &copy; <span>{year}</span> | All rights reserved</small
+  >
+</footer>

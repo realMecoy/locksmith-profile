@@ -1,0 +1,263 @@
+---
+import Layout from "../layouts/Layout.astro";
+import { Icon } from "astro-icon/components";
+import { fade } from "astro:transitions";
+---
+
+<Layout
+  title="Master Keys"
+  seoTitle="Contact page, Master Keys"
+  seoDesc="Master Keys is a well established locksmith company in Cape Town, we cut keys, open cars, install locks, and more."
+>
+  <main
+    class="flex flex-col justify-center items-center min-h-screen gap-4 bg-black"
+  >
+    <div
+      class="contact w-full flex flex-col lg:flex-row justify-center items-center min-h-screen gap-4 px-8 md:w-3/4"
+    >
+      <div class="w-full p-6" transition:animate={fade({ duration: 1000 })}>
+        <h1 class="text-4xl pb-5 text-white">Call or Mail me</h1>
+        <div class="flex flex-col gap-4">
+          <div>
+            <h3 class="text-2xl text-yellow-400">Telegram</h3>
+            <p class="text-xl text-white">
+              <Icon name="mdi:telegram" class="w-5 h-5 text-blue-400 inline" />
+              (+27)73 918 3155
+            </p>
+          </div>
+          <div>
+            <h4 class="text-2xl text-yellow-400">Whatsapp</h4>
+            <p class="text-xl text-white">
+              <Icon name="mdi:whatsapp" class="w-5 h-5 text-green-600 inline" />
+              (+27)83 503 6603
+            </p>
+          </div>
+          <div>
+            <p class="text-2xl text-yellow-400">Email</p>
+            <p class="text-xl text-white">
+              <Icon name="mdi:gmail" class="w-5 h-5 text-red-600 inline" />
+              realmecoy@gmail.com
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Contact Form -->
+      <div class="p-8 w-full">
+        <hr class="h-px my-1 w-3/4 text-white border-2 mx-auto lg:hidden" />
+        <div class="flex items-center min-h-screen">
+          <div class="container mx-auto">
+            <div
+              class="max-w-md mx-auto md:my-10 p-5 rounded-md"
+              transition:animate={fade({ duration: 1500 })}
+            >
+              <div class="text-center" id="heading">
+                <h2 class="my-3 text-3xl font-semibold text-white">
+                  In-form Me
+                </h2>
+                <p class="text-white">If you like 😊</p>
+              </div>
+              <p
+                class="text-center text-white bg-green-600 text-4xl"
+                id="result"
+              >
+              </p>
+
+              <div>
+                <form
+                  action="https://api.web3forms.com/submit"
+                  method="POST"
+                  id="form"
+                  class="text-white"
+                >
+                  <input
+                    type="hidden"
+                    name="access_key"
+                    value="becd6433-6da0-42aa-8a23-8c2cf55f5e4f"
+                  />
+                  <input
+                    type="hidden"
+                    name="subject"
+                    value="New Submission from Web3Forms"
+                  />
+                  <input
+                    type="checkbox"
+                    name="botcheck"
+                    id=""
+                    style="display: none;"
+                  />
+
+                  <div class="mb-6">
+                    <label for="name" class="block mb-2 text-sm text-white"
+                      >Full Name</label
+                    >
+                    <input
+                      type="text"
+                      name="name"
+                      id="name"
+                      placeholder="John Doe"
+                      required
+                      autocomplete="on"
+                      class="w-full px-3 py-2 placeholder-gray-300 border border-gray-300 rounded-md focus:outline-none focus:ring focus:ring-indigo-100 focus:border-indigo-300"
+                    />
+                  </div>
+                  <div class="mb-6">
+                    <label for="email" class="block mb-2 text-sm text-white"
+                      >Email Address</label
+                    >
+                    <input
+                      type="email"
+                      name="email"
+                      id="email"
+                      placeholder="you@company.com"
+                      required
+                      autocomplete="on"
+                      class="w-full px-3 py-2 placeholder-gray-300 border border-gray-300 rounded-md focus:outline-none focus:ring focus:ring-indigo-100 focus:border-indigo-300"
+                    />
+                  </div>
+                  <div class="mb-6">
+                    <label for="phone" class="text-sm text-white"
+                      >Phone Number</label
+                    >
+                    <input
+                      type="text"
+                      name="phone"
+                      id="phone"
+                      placeholder="021 123 456"
+                      required
+                      autocomplete="on"
+                      class="w-full px-3 py-2 placeholder-gray-300 border border-gray-300 rounded-md focus:outline-none focus:ring focus:ring-indigo-100 focus:border-indigo-300"
+                    />
+                  </div>
+                  <div class="mb-6">
+                    <label for="message" class="block mb-2 text-sm text-white"
+                      >Your Message</label
+                    >
+
+                    <textarea
+                      rows="5"
+                      name="message"
+                      id="message"
+                      placeholder="Your Message"
+                      class="w-full px-3 py-2 placeholder-gray-300 border border-gray-300 rounded-md focus:outline-none focus:ring focus:ring-indigo-100 focus:border-indigo-300"
+                      required></textarea>
+                  </div>
+                  <div class="mb-6">
+                    <button
+                      type="submit"
+                      class="w-full px-3 py-4 text-white bg-yellow-500 rounded-md focus:bg-yellow-600 focus:outline-white cursor-pointer"
+                    >
+                      Send Message
+                    </button>
+                  </div>
+                </form>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div
+      class="find w-full flex justify-center flex-col md:flex-row items-center pb-12"
+    >
+    </div>
+  </main>
+</Layout>
+
+<style>
+  main {
+    background: rgb(2, 0, 36);
+    background: -moz-linear-gradient(
+      90deg,
+      rgba(2, 0, 36, 1) 0%,
+      rgba(9, 34, 121, 1) 35%,
+      rgba(0, 212, 255, 1) 100%
+    );
+    background: -webkit-linear-gradient(
+      90deg,
+      rgba(2, 0, 36, 1) 0%,
+      rgba(9, 34, 121, 1) 35%,
+      rgba(0, 212, 255, 1) 100%
+    );
+    background: linear-gradient(
+      90deg,
+      rgba(2, 0, 36, 1) 0%,
+      rgba(9, 34, 121, 1) 35%,
+      rgba(0, 212, 255, 1) 100%
+    );
+    filter: progid:DXImageTransform.Microsoft.gradient(startColorstr="#020024",endColorstr="#00d4ff",GradientType=1);
+  }
+  .invalid-feedback,
+  .empty-feedback {
+    display: none;
+  }
+
+  .was-validated :placeholder-shown:invalid ~ .empty-feedback {
+    display: block;
+  }
+
+  .was-validated :not(:placeholder-shown):invalid ~ .invalid-feedback {
+    display: block;
+  }
+
+  .is-invalid,
+  .was-validated :invalid {
+    border-color: #dc3545;
+  }
+</style>
+
+<script is:inline>
+  document.addEventListener("astro:page-load", () => {
+    const form = document.getElementById("form");
+    const result = document.getElementById("result");
+    const heading = document.getElementById("heading");
+
+    form.addEventListener("submit", function (e) {
+      const formData = new FormData(form);
+      e.preventDefault();
+      var object = {};
+      formData.forEach((value, key) => {
+        object[key] = value;
+      });
+      var json = JSON.stringify(object);
+      result.innerHTML = "Please wait...";
+
+      fetch("https://api.web3forms.com/submit", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+          Accept: "application/json",
+        },
+        body: json,
+      })
+        .then(async (response) => {
+          let json = await response.json();
+          if (response.status == 200) {
+            result.innerHTML = json.message;
+            heading.classList.add("hidden");
+            form.classList.add("hidden");
+            result.classList.remove("text-gray-500");
+            result.classList.add("text-green-500");
+          } else {
+            console.log(response);
+            result.innerHTML = json.message;
+            result.classList.remove("text-gray-500");
+            result.classList.add("text-red-500");
+          }
+        })
+        .catch((error) => {
+          console.log(error);
+          result.innerHTML = "Something went wrong!";
+          result.style.color = "red";
+        })
+        .then(function () {
+          form.reset();
+          setTimeout(() => {
+            result.style.display = "none";
+            heading.classList.remove("hidden");
+            form.classList.remove("hidden");
+          }, 3000);
+        });
+    });
+  });
+</script>

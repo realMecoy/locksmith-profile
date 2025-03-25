@@ -1,0 +1,67 @@
+---
+import Layout from "../layouts/Layout.astro";
+const year = new Date().getFullYear() - 2011;
+---
+
+<Layout>
+  <main class="flex flex-col justify-center items-center md:pb-8 lg:p-24">
+    <h1
+      class="text-3xl md:text-5xl font-bold underline text-amber-500 mt-12 pb-8"
+    >
+      My Story
+    </h1>
+    <div class="h-3/4 pb-12 md:px-14 text-white md:text-lg">
+      <p class="py-2 px-14">
+        I started and did most of my apprenticeship at City Locksmiths in
+        Pietermaritzburg in 2006, which sadly no longer exists (the locksmith
+        shop, not the city, Pietermaritzburg still exists of course as the
+        capital of KZN).
+        <p class="py-2 px-14">
+          I excelled at this trade from day one and qualified ahead of my time
+          as it would generally take 5 years to qualify and I did it in a little
+          under 4 years(2 months short of 4 years to be exact). After qualifying
+          I was offered a job at a reputable locksmith shop in Cape Town, known
+          as Master Keys, Table View. I moved here in 2011 and have been working
+          in the Western Cape as a locksmith ever since, going on {year} years now...
+        </p>
+      </p>
+      <p class="py-2 px-14">
+        I haven't worked for Master Keys all this time, I worked for Mayday
+        Locksmiths in Plumstead for 7 and a half years before returning to
+        master keys in late 2023. I now work in the CBD branch.
+      </p>
+      <p class="py-2 px-14">
+        Some of my other skills include this website that I built from scratch.
+        Locksmithing is my main skillset though so please don't judge me too
+        harshly, hahaha. I also did a little bit of auto engineering(actually
+        auto machining is what they call it) and a little bit of refrigeration
+        back in day.
+      </p>
+    </div>
+  </main>
+</Layout>
+
+<style>
+  body {
+    background: rgb(2, 0, 36);
+    background: -moz-linear-gradient(
+      90deg,
+      rgba(2, 0, 36, 1) 0%,
+      rgba(9, 121, 80, 1) 35%,
+      rgba(0, 212, 255, 1) 100%
+    );
+    background: -webkit-linear-gradient(
+      90deg,
+      rgba(2, 0, 36, 1) 0%,
+      rgba(9, 121, 80, 1) 35%,
+      rgba(0, 212, 255, 1) 100%
+    );
+    background: linear-gradient(
+      90deg,
+      rgba(2, 0, 36, 1) 0%,
+      rgba(9, 121, 80, 1) 35%,
+      rgba(0, 212, 255, 1) 100%
+    );
+    filter: progid:DXImageTransform.Microsoft.gradient(startColorstr="#020024",endColorstr="#00d4ff",GradientType=1);
+  }
+</style>
