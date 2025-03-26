@@ -1,10 +1,11 @@
 ---
 import Image from "astro/components/Image.astro";
+import LogoImg from "../assets/profile.jpg";
 ---
 
 <a href="/locksmith-profile/">
   <Image
-    src="/images/profile.jpg"
+    src={LogoImg}
     alt="Logo"
     class="h-16 w-16 md:h-16 md:w-16 rounded-full"
     loading="eager"
