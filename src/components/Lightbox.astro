@@ -2,17 +2,13 @@
   <div class="lightbox-img-wrapper">
     <button type="button" class="close-btn" tabindex="0">X</button>
     <button type="button" class="lightbox-btn left left-arrow" id="left">
-      <img
-        class="left-arrow"
-        src="/locksmith-profile/images/arrow-left.svg"
-        alt=""
-      />
+      <img class="left-arrow" src="/locksmith-profile/arrow-left.svg" alt="" />
     </button>
     <img class="lightbox-img" src="" alt="" />
     <button type="button" class="lightbox-btn right right-arrow" id="right">
       <img
         class="right-arrow"
-        src="/locksmith-profile/images/arrow-right.svg"
+        src="/locksmith-profile/arrow-right.svg"
         alt=""
       />
     </button>
@@ -27,22 +23,6 @@
     --white-faded: rgba(255, 255, 255, 0.5);
     --transition: all 0.3s ease;
     --box-shadow: 3px 3px 10px rgba(100, 100, 100, 0.5);
-  }
-
-  .lightbox-enabled {
-    display: block;
-    margin: auto;
-    max-width: 100%;
-    max-height: 100%;
-    object-fit: cover;
-    transition: var(--transition);
-  }
-
-  .lightbox-enabled:hover {
-    cursor: pointer;
-    opacity: 0.8;
-    cursor: zoom-in;
-    transform: scale(1.01);
   }
 
   .lightbox-container {
