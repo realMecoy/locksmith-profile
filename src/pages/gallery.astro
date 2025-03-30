@@ -25,22 +25,22 @@ import ImageLayout from "../components/ImageLayout.astro";
 </style>
 
 <script>
-  document.addEventListener("DOMContentLoaded", () => {
-    const scrollUpBtn = document.getElementById("scroll-up");
+  // document.addEventListener("DOMContentLoaded", () => {
+  const scrollUpBtn = document.getElementById("scroll-up");
 
-    window.addEventListener("scroll", function () {
-      if (window.scrollY > 200) {
-        scrollUpBtn.style.display = "block";
-      } else {
-        scrollUpBtn.style.display = "none";
-      }
-    });
+  window.addEventListener("scroll", function () {
+    if (window.scrollY > 200) {
+      scrollUpBtn.style.display = "block";
+    } else {
+      scrollUpBtn.style.display = "none";
+    }
+  });
 
-    scrollUpBtn.addEventListener("click", function () {
-      window.scrollTo({
-        top: 0,
-        behavior: "smooth",
-      });
+  scrollUpBtn.addEventListener("click", function () {
+    window.scrollTo({
+      top: 0,
+      behavior: "smooth",
     });
   });
+  // });
 </script>
