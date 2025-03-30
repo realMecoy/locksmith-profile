@@ -121,7 +121,7 @@ import Logo from "../components/Logo.astro";
   </style>
 
   <script>
-    document.addEventListener("DOMContentLoaded", () => {
+    document.addEventListener("astro:page-load", () => {
       const nav = document.querySelector(".navbar");
       const closeNav = document.querySelector(".close-nav");
       const navLinks = nav.querySelectorAll("a");
