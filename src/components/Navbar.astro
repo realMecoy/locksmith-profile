@@ -19,7 +19,7 @@ import Logo from "../components/Logo.astro";
         >
         </div>
       </button>
-      <nav class="hidden space-x-8 text-xl md:block" aria-label="main">
+      <nav class="hidden space-x-8 text-xl md:block navbar" aria-label="main">
         <ul
           class="flex flex-col items-center w-full relative top-0 md:top-0 z-30 md:bg-transparent md:flex-row gap-2 px-8"
         >
@@ -146,8 +146,13 @@ import Logo from "../components/Logo.astro";
 
       navLinks.forEach((link) => {
         const navLinkPathname = new URL(link.href).pathname;
-        if (currentURL === navLinkPathname) {
+
+        if (
+          currentURL === navLinkPathname &&
+          navLinkPathname.includes("/locksmith-profile/")
+        ) {
           link.classList.add("active");
+          console.log(navLinkPathname);
         }
       });
     });

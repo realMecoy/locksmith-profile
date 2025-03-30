@@ -1,0 +1,20 @@
+---
+import Layout from "../layouts/Layout.astro";
+import Image from "astro/components/Image.astro";
+---
+
+<Layout>
+  <main class="flex flex-col justify-center items-center min-h-3/4 bg-gray-500">
+    <div
+      class="mx-auto flex justify-center items-center bg-green-600 p-12 rounded-xl"
+    >
+      <Image
+        class="object-cover object-center w-full h-96 max-w-full rounded-lg"
+        src="/locksmith-profile/success.png"
+        alt="Success"
+        width={500}
+        height={500}
+      />
+    </div>
+  </main>
+</Layout>
