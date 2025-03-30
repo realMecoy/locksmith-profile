@@ -1,0 +1,291 @@
+<div class="lightbox-container">
+  <div class="lightbox-img-wrapper">
+    <button type="button" class="close-btn" tabindex="0">X</button>
+    <button type="button" class="lightbox-btn left left-arrow" id="left">
+      <img
+        class="left-arrow"
+        src="/locksmith-profile/images/arrow-left.svg"
+        alt=""
+      />
+    </button>
+    <img class="lightbox-img" src="" alt="" />
+    <button type="button" class="lightbox-btn right right-arrow" id="right">
+      <img
+        class="right-arrow"
+        src="/locksmith-profile/images/arrow-right.svg"
+        alt=""
+      />
+    </button>
+  </div>
+</div>
+
+<style>
+  :root {
+    --primary-color: #08417d;
+    --secondary-color: #6c757d;
+    --dark-faded: rgba(100, 100, 100, 0.5);
+    --white-faded: rgba(255, 255, 255, 0.5);
+    --transition: all 0.3s ease;
+    --box-shadow: 3px 3px 10px rgba(100, 100, 100, 0.5);
+  }
+
+  .lightbox-enabled {
+    display: block;
+    margin: auto;
+    max-width: 100%;
+    max-height: 100%;
+    object-fit: cover;
+    transition: var(--transition);
+  }
+
+  .lightbox-enabled:hover {
+    cursor: pointer;
+    opacity: 0.8;
+    cursor: zoom-in;
+    transform: scale(1.01);
+  }
+
+  .lightbox-container {
+    position: fixed;
+    top: 4rem;
+    left: 0;
+    right: 0;
+    min-width: 90vw;
+    min-height: 90vh;
+    background-color: var(--white-faded);
+    display: grid;
+    place-items: center;
+    z-index: 10;
+    opacity: 0;
+    transition: var(--transition);
+    pointer-events: none;
+  }
+
+  .close-btn {
+    position: fixed;
+    top: 8rem;
+    right: 3rem;
+    width: 3rem;
+    height: 3rem;
+    padding: 0.8rem;
+    cursor: pointer;
+    transition: var(--transition);
+    font-size: 2rem;
+    font-weight: bold;
+    color: red;
+    background-color: var(--white-faded);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .close-btn:hover {
+    color: var(--primary-color);
+    scale: 1.1;
+  }
+
+  .lightbox-container.active {
+    opacity: 1;
+    pointer-events: all;
+  }
+
+  .lightbox-img-wrapper {
+    position: relative;
+    display: grid;
+    place-items: center;
+    max-width: 90vw;
+    max-height: 90vh;
+    position: relative;
+    height: 100%;
+    width: 100%;
+    box-shadow: var(--box-shadow);
+  }
+
+  .lightbox-img {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: var(--transition);
+  }
+
+  .lightbox-btn {
+    background-color: var(--white-faded);
+    display: grid;
+    place-items: center;
+    cursor: pointer;
+    transition: var(--transition);
+    padding: 0.8rem;
+    position: absolute;
+  }
+
+  .lightbox-btn.inactive {
+    opacity: 0;
+    pointer-events: none;
+  }
+
+  h1.inactive {
+    opacity: 0;
+    pointer-events: none;
+  }
+
+  .lightbox-btn:focus {
+    outline: none;
+  }
+
+  .left {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    left: 0.5rem;
+  }
+
+  .left:hover,
+  .left:focus {
+    left: 0;
+  }
+
+  .right {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    right: 0.5rem;
+  }
+
+  .right:hover,
+  .right:focus {
+    right: 0;
+  }
+
+  .lightbox-img {
+    width: 800px;
+    height: 600px;
+    object-fit: cover;
+  }
+
+  .left-arrow,
+  .right-arrow {
+    width: 75px;
+    height: 75px;
+  }
+</style>
+
+<script>
+  // document.addEventListener("astro:page-load", () => {
+  //   document.addEventListener("DOMContentLoaded", () => {
+  // Variables
+  const lightboxEnabled = document.querySelectorAll(".lightbox-enabled");
+  const lightboxArray = Array.from(lightboxEnabled);
+  const lastImage = lightboxArray.length - 1;
+  const lightboxContainer = document.querySelector(".lightbox-container");
+  const lightboxImage = document.querySelector(".lightbox-img");
+  const closeBtn = document.querySelector(".close-btn");
+  const h1 = document.querySelector("h1");
+
+  const lightboxBtns = document.querySelectorAll(".lightbox-btn");
+  const lightboxBtnLeft = document.getElementById("left");
+  const lightboxBtnRight = document.getElementById("right");
+  let activeImage;
+
+  // Functions
+  const showLightbox = () => {
+    lightboxContainer.classList.add("active");
+    h1.classList.add("inactive");
+  };
+  const closeLightbox = () => {
+    lightboxContainer.classList.remove("active");
+    h1.classList.remove("inactive");
+  };
+
+  // closeBtn.addEventListener("click", closeLightbox);
+
+  // Set active image
+  const setActiveImage = (image: HTMLImageElement) => {
+    if (lightboxImage instanceof HTMLImageElement) {
+      lightboxImage.src = image.src;
+    }
+    activeImage = lightboxArray.indexOf(image);
+    // Set image src from  data-imagesrc attribute when using images that are a different size from original src
+    // lightboxImage.src = image.dataset.imagesrc;
+    // Remove inactive class for keyboard navigation
+    // removeBtnInactiveClass();
+    // Remove buttons if at the beginning or end
+    // switch (activeImage) {
+    //     case 0:
+    //         lightboxBtnLeft.classList.add("inactive");
+    //         break;
+    //     case lastImage:
+    //         lightboxBtnRight.classList.add("inactive");
+    //         break;
+    //     default:
+    //         lightboxBtns.forEach(btn => btn.classList.remove("inactive"));
+    //         break;
+    // }
+  }; // Remove inactive class
+  // const removeBtnInactiveClass = () => {
+  //   lightboxBtns.forEach((btn) => btn.classList.remove("inactive"));
+  // };
+
+  // Remove btn animation
+  const removeBtnAnimation = () => {
+    lightboxBtns.forEach((btn) =>
+      setTimeout(function () {
+        (btn as HTMLElement).blur();
+      }, 200)
+    );
+  };
+  // Slide left
+  const transitionSlideLeft = () => {
+    lightboxBtnLeft.focus();
+
+    activeImage === 0
+      ? setActiveImage(lightboxArray[lastImage] as HTMLImageElement)
+      : setActiveImage(lightboxArray[activeImage - 1] as HTMLImageElement);
+    removeBtnAnimation();
+  };
+  // Slide right
+  const transitionSlideRight = () => {
+    lightboxBtnRight.focus();
+
+    activeImage === lastImage
+      ? setActiveImage(lightboxArray[0] as HTMLImageElement)
+      : setActiveImage(lightboxArray[activeImage + 1] as HTMLImageElement);
+    removeBtnAnimation();
+  };
+  // Transition direction handler
+  const transitionSlideHandler = (direction) => {
+    direction.includes("left") ? transitionSlideLeft() : transitionSlideRight();
+  };
+
+  // Event Listeners
+
+  lightboxEnabled.forEach((image) => {
+    image.addEventListener("click", (e) => {
+      showLightbox();
+
+      setActiveImage(image as HTMLImageElement);
+    });
+  });
+
+  lightboxContainer.addEventListener("click", (e) => {
+    e.target !== lightboxImage ? closeLightbox() : null;
+  });
+
+  lightboxBtns.forEach((btn) => {
+    btn.addEventListener("click", (e) => {
+      e.stopPropagation();
+
+      transitionSlideHandler((e.currentTarget as HTMLElement).id);
+    });
+  });
+
+  window.addEventListener("keydown", (e) => {
+    e.key === "Enter" ? closeLightbox() : null;
+    e.key === "Space Bar" ? closeLightbox() : null;
+    e.key === "ArrowLeft" ? transitionSlideLeft() : null;
+    e.key === "ArrowRight" ? transitionSlideRight() : null;
+  });
+  //   });
+</script>
